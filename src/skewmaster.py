@@ -12,7 +12,6 @@ current_date = datetime.now().date()
 two_days_later = current_date + timedelta(days=2)
 
 
-# should take in the forward price as well
 def skew(
     stock, atfVol, psk, csk, pPlus, cPlus, min_c, min_p, strike, expiration, fwd, e_strike=0.5
 ):

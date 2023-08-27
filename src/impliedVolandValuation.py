@@ -36,7 +36,7 @@ def opt_board(tkr):
         volatility = 0.30
         day_count = ql.Actual360()
 
-        # Convert maturity_date from numpy object (if it's a date) to appropriate QuantLib object
+        # Convert maturity_date from numpy object to appropriate QuantLib object
         ql_maturity_date = ql.Date(maturity_date.day, maturity_date.month, maturity_date.year)
 
         # Construct QuantLib option type and exercise
@@ -140,7 +140,7 @@ def calculate_implied_volatility(row, dividend_rate, spot_price, rate):
     option_type = ql.Option.Call if row["CALL"] else ql.Option.Put
     initial_guess = 0.20
 
-    # Convert maturity_date from numpy object (if it's a date) to appropriate QuantLib object
+    # Convert maturity_date from numpy object to appropriate QuantLib object
     ql_maturity_date = ql.Date(maturity_date.day, maturity_date.month, maturity_date.year)
     # Construct the American option
     payoff = ql.PlainVanillaPayoff(option_type, strike)
@@ -193,7 +193,7 @@ def calculate_implied_volatility(row, dividend_rate, spot_price, rate):
         )
     except Exception as e:
         print(f"Error for row {row}: {e}")
-        implied_vol = None  # placeholder value
+        implied_vol = None 
 
     return implied_vol
 
@@ -209,8 +209,6 @@ def calculate_implied_volatility_board(tkr):
     dividend_rate = np.sum(discrete_divs(tkr)[0]) / 365
     rate = get_ff_rate()
 
-    # test_row = options_data.iloc[50]
-    # print(calculate_implied_volatility(test_row, dividend_rate, spot_price, rate))
     options_data["implied_vol"] = options_data.apply(
         lambda row: calculate_implied_volatility(row, dividend_rate, spot_price, rate),
         axis=1,

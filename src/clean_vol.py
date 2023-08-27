@@ -28,7 +28,7 @@ def set_clean_vol(tkr, clean_vol, earnings_var=1.5, normal_var=1, wknd_var=0.08,
     Returns:
     Pandas dataframe
     """
-    # Create a list of dates for the year you're interested in
+    
     delta = datetime.timedelta(days=260)
     sdt = datetime.datetime.today()
     edt = sdt + delta
@@ -61,10 +61,8 @@ def set_clean_vol(tkr, clean_vol, earnings_var=1.5, normal_var=1, wknd_var=0.08,
     today = pd.Timestamp.today().date()
     yesterday = datetime.datetime.now().date() - datetime.timedelta(days=1)
 
-    # create an output that consists of Expiration column, Clean Vol column, Dirty Vol column, TS Vol
-
     columns = ["my clean vol", "dirty vol", "ts vol", "nvd", "dte"]
-    # Create empty data frame
+    # Creates empty data frame
     new_df = pd.DataFrame(index=expirations["Date"], columns=columns)
 
     ann_ratio = 365 / 260

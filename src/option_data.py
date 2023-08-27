@@ -21,7 +21,7 @@ from fredapi import Fred
 
 
 # Replace YOUR_API_KEY with your actual FRED API key
-api_key = "cb0fa660da1ffc1743a352f26c28c387"
+api_key = "YOUR_API_KEY"
 
 
 # Create a cache that expires items after 24 hours
