@@ -9,6 +9,7 @@ The Option Trader Toolkit is a collection of Python tools aimed at aiding option
   - [impliedVolandValuationl.py](#impliedvolandvaluationlpy)
   - [opt_data.py](#opt_datapy)
   - [clean_vol.py](#clean_volpy)
+  - [historical_vol.py](#historical_volpy)
   - [index_correlation.py](#index_correlationpy)
 - [Contributing](#contributing)
 
@@ -52,6 +53,13 @@ The Option Trader Toolkit is a collection of Python tools aimed at aiding option
 - **Functions**:
   - `set_clean_vol()`: Adjusts the 365-day volatility to a 260-day one based on trading, weekend, and holiday days.
   - `compare_vol()`: Sets clean vol and adds implied vols column for specific expirations and strikes.
+
+### historical_vol.py
+
+- **Imports**: yfinance, pandas, numpy, cachetools
+- **Functions**:
+  - `volatility_cones_table()`: Creates a table for a given ticker with 10d, 20d, 40d, 60d, and 120d volatility cone percentiles.
+  - `historical_vol_snapshot()`: Provides snapshot of most recent 10d, 20d, and 60d vols for a given ticker
 
 ### index_correlation.py
 
